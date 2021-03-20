@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 10000
 
 # actuator相关配置
 management:
@@ -18,17 +18,24 @@ spring:
     name: API-GATEWAY
   cloud:
     gateway:
-#      globalcors:
-#        cors-configurations:
-#          '[/**]':
-#            allowedOrigins: '*'
-#            allowedMethods: '*'
-#            allowedHeaders: '*'
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: '*'
+            allowedMethods: '*'
+            allowedHeaders: '*'
       discovery:
         locator:
           # 关闭服务发现根据service-name自动配置route的功能
           enabled: false
       routes:
+      - id: PLATFORM-MANAGER
+        predicates:
+          - Path=/oauth2/**
+        filters:
+          - RewritePath=/oauth2/(?<segment>.*), /oauth2-server/$\{segment}
+          - RequestTime
+        uri: lb://OAUTH2-SERVER
       - id: FILE-SERVER
         predicates:
           - Path=/file/**

@@ -60,7 +60,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     private RedisConnectionFactory redisConnectionFactory;
 
     @Autowired
-    @Qualifier("oauth2DataSource")
     private DataSource oauth2DataSource;
 
     @Override

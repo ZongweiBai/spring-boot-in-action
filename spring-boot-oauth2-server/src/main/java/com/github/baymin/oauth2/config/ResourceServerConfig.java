@@ -27,8 +27,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 .successHandler(appLoginInSuccessHandler)
                 .and()
                 .authorizeRequests()
-                // actuator接口不需要校验
-                .antMatchers("/actuator/*").permitAll()
+                // actuator和登录接口不需要校验
+                .antMatchers("/actuator", "/actuator/*", "/user/login").permitAll()
                 .anyRequest().authenticated().and()
                 .csrf().disable();
     }

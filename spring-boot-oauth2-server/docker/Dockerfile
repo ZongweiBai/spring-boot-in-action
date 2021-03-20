@@ -1,4 +1,4 @@
-FROM imagesregistry-test:5000/centos7-jdk1.8:latest
+FROM adoptopenjdk/openjdk15:x86_64-leap-jre-15.0.2_7
 
 MAINTAINER zongwei.bai@foxmail.com
 

@@ -29,6 +29,9 @@
     <logger name="org.thymeleaf" additivity="false" level="INFO">
     </logger>
 
+    <logger name="com.github.baymin.oauth2.restclient" additivity="false" level="DEBUG">
+    </logger>
+
     <!-- print the start log in nohup.out-->
     <logger name="com.github.baymin.oauth2.OAuth2ServerApplication" additivity="false" level="INFO">
         <appender-ref ref="STDOUT"/>

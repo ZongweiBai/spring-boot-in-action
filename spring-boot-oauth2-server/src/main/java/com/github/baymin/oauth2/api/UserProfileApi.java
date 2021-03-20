@@ -2,14 +2,15 @@ package com.github.baymin.oauth2.api;
 
 import com.github.baymin.oauth2.entity.UserProfile;
 import com.github.baymin.oauth2.payload.UserInfoVO;
+import com.github.baymin.oauth2.restclient.OAuth2Api;
+import com.github.baymin.oauth2.restclient.OAuth2AuthnInfo;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.oauth2.common.OAuth2AccessToken;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
-import java.util.Map;
+import java.util.Base64;
 import java.util.UUID;
 
 /**
@@ -21,6 +22,16 @@ import java.util.UUID;
 @Slf4j
 @RestController
 public class UserProfileApi {
+
+    @Autowired
+    private OAuth2Api oAuth2Api;
+
+    @PostMapping(value = "/user/login")
+    public OAuth2AccessToken userLogin(@RequestBody OAuth2AuthnInfo authnInfo) {
+        log.info("进行用户登录操作");
+        String authorization = "Basic " + Base64.getEncoder().encodeToString("oauth_client:oauth_client_9527".getBytes());
+        return oAuth2Api.getAccessTokenByPassword(authorization, "password", authnInfo.getUsername(), authnInfo.getPassword(), "all");
+    }
 
     /**
      * 获取用户的基本信息

@@ -17,16 +17,14 @@ eureka:
 
 spring:
   datasource:
-    # oauth2的数据源配置
-    oauth2:
-      type: com.zaxxer.hikari.HikariDataSource
-      jdbc-url: jdbc:mysql://127.0.0.1:3306/boot_in_action?useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
-      username: root
-      password: root
-      driverClassName: com.mysql.cj.jdbc.Driver
-      hikari:
-        maximum-pool-size: 10
-        minimum-idle: 10
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://127.0.0.1:3306/boot_in_action?useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+    driverClassName: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 10
   redis:
     host: 127.0.0.1
     port: 6379
@@ -42,8 +40,23 @@ spring:
     user:
       name: admin
       password: admin
+  cloud:
+    consul:
+      host: 127.0.0.1
+      port: 8501
+      discovery:
+        instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+        serviceName: OAUTH2-SERVER
+        prefer-ip-address: true
+        register-health-check: true
+        # 只能使用health-check-url可以解决consul Service Checks failed的问题
+        # health-check-path: /actuator/health
+        health-check-url: http://${spring.cloud.client.ip-address}:${server.port}${server.servlet.context-path}/actuator/health
+        tags: OAuth2鉴权服务
 
 # logback配置文件路径
 logging:
   config: classpath:logback.xml
+  level:
+    com.github.baymin.oauth2.restclient.OAuth2Api: debug
 
