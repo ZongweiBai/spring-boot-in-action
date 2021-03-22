@@ -25,6 +25,8 @@
                 <module>spring-boot-oauth2-server</module>
                 <module>spring-boot-discovery-server</module>
                 <module>spring-boot-batch-server</module>
+                <module>spring-boot-axis2-server</module>
+                <module>spring-boot-cxf-client</module>
             </modules>
         </profile>
     </profiles>
