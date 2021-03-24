@@ -20,7 +20,8 @@ spring:
     type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:mysql://127.0.0.1:3306/boot_in_action?useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
     username: root
-    password: root
+    password: 123456
+#    password: root
     driverClassName: com.mysql.cj.jdbc.Driver
     hikari:
       maximum-pool-size: 10

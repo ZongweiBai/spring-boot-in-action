@@ -1,5 +1,5 @@
 server:
-  port: 10000
+  port: 11088
 
 # actuator相关配置
 management:
@@ -58,7 +58,7 @@ spring:
         uri: lb://WS-IM-SERVER
 
     consul:
-      host: 192.168.3.168
+      host: 127.0.0.1
       port: 8501
       discovery:
         instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
