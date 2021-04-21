@@ -23,5 +23,11 @@ spring:
   application:
     name: boot_ws_server
   redis:
-    host: 127.0.0.1
+    host: 192.168.3.168
     port: 6379
+#    password: root
+
+management:
+  endpoint:
+    restart:
+      enabled: true
