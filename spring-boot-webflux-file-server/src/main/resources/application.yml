@@ -1,0 +1,55 @@
+server:
+  port: 8080
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+# actuator相关配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      base-path: /actuator
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
+
+spring:
+  output:
+    ansi:
+      enabled: always
+  application:
+    name: FILE-SERVER
+  data:
+    mongodb:
+      host: 192.168.3.168
+      port: 27017
+      username: zongwei
+      # 加单引号解决prohibited character at position 0的问题
+      password: '123456'
+      # 指定操作的数据库
+      database: FILE_SERVER
+  jackson:
+    property-naming-strategy: CAMEL_CASE_TO_LOWER_CASE_WITH_UNDERSCORES
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+08:00
+
+  # consul配置
+  cloud:
+    consul:
+      host: 192.168.3.168
+      port: 8501
+      discovery:
+        instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+        serviceName: FILE-SERVER
+        prefer-ip-address: true
+        register-health-check: true
+        # 只能使用health-check-url，可以解决consul Service Checks failed的问题
+        #        health-check-path: /actuator/health
+        health-check-url: http://${spring.cloud.client.ip-address}:${server.port}/actuator/health
+        health-check-critical-timeout: 30s
+        tags: 基础文件服务

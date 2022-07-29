@@ -1,0 +1,59 @@
+server:
+  port: 1512
+
+# actuator相关配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      base-path: /actuator
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
+
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: '*'
+            allowedMethods: '*'
+            allowedHeaders: '*'
+      discovery:
+        locator:
+          # 关闭服务发现根据service-name自动配置route的功能
+          enabled: false
+      routes:
+      - id: pgdms-minisys
+        predicates:
+          - Path=/minisys/**
+        filters:
+          - StripPrefix=1
+          - RequestTime
+        uri: lb://PGDMS-MINISYS
+      - id: PLATFORM-MANAGER
+        predicates:
+          - Path=/platform/**
+        filters:
+          - StripPrefix=1
+          - RequestTime
+        uri: lb://PLATFORM-MANAGER
+
+# eureka注册中心配置
+eureka:
+  client:
+    enabled: true
+    serviceUrl:
+      defaultZone: http://localhost:1514/eureka
+    registry-fetch-interval-seconds: 5
+  instance:
+    prefer-ip-address: true
+    ip-address: ${spring.cloud.client.ip-address}
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 10
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}

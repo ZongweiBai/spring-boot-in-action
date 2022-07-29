@@ -1,0 +1,33 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+  jetty:
+    accesslog:
+      enabled: true
+      format: ncsa
+      append: true
+      filename: logs/jetty-yyyy_mm_dd.request.log
+    connection-idle-timeout: 60000
+    threads:
+      selectors: -1
+      acceptors: -1
+      min: 20
+      max: 200
+      idle-timeout: 60000
+
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+08:00
+  application:
+    name: boot_ws_server
+  redis:
+    host: 192.168.3.168
+    port: 6379
+#    password: root
+
+management:
+  endpoint:
+    restart:
+      enabled: true

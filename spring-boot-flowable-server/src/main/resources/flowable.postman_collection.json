@@ -1,0 +1,3485 @@
+{
+	"info": {
+		"_postman_id": "5accb244-f731-47e3-bbea-f4ec89092439",
+		"name": "flowable",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "flowable-api",
+			"item": [
+				{
+					"name": "流程管理",
+					"item": [
+						{
+							"name": "发布流程",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "alarm_flow_1",
+											"type": "file",
+											"src": "/C:/Users/Lincoln/Documents/alarm_flow.bpmn20.xml"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/repository/deployments",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"repository",
+										"deployments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "发布流程列表",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/repository/deployments",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"repository",
+										"deployments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除发布",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/repository/deployments/680792c1-0f23-11ea-bdb8-d0abd5554ec0",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"repository",
+										"deployments",
+										"680792c1-0f23-11ea-bdb8-d0abd5554ec0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据id查询发布流程",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/repository/deployments/3aa70e9d-0f23-11ea-bdb8-d0abd5554ec0",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"repository",
+										"deployments",
+										"3aa70e9d-0f23-11ea-bdb8-d0abd5554ec0"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "流程定义",
+					"item": [
+						{
+							"name": "流程定义列表",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/repository/process-definitions",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"repository",
+										"process-definitions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据流程定义id获取流程定义详情",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/repository/process-definitions/alarm_flow:2:b37a3098-0f24-11ea-bdb8-d0abd5554ec0",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"repository",
+										"process-definitions",
+										"alarm_flow:2:b37a3098-0f24-11ea-bdb8-d0abd5554ec0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据流程定义id更新流程信息",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"category\" : \"updatedcategory\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/repository/process-definitions/alarm_flow:2:b37a3098-0f24-11ea-bdb8-d0abd5554ec0",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"repository",
+										"process-definitions",
+										"alarm_flow:2:b37a3098-0f24-11ea-bdb8-d0abd5554ec0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据流程定义id冻结、启用流程",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"action\" : \"activate\",\r\n  \"includeProcessInstances\" : \"false\",\r\n  \"date\" : \"2019-11-25T00:42:12Z\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/repository/process-definitions/alarm_flow:2:b37a3098-0f24-11ea-bdb8-d0abd5554ec0",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"repository",
+										"process-definitions",
+										"alarm_flow:2:b37a3098-0f24-11ea-bdb8-d0abd5554ec0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据流程定义id获取流程定义内容",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/repository/process-definitions/alarm_flow:1:3afa85d0-0f23-11ea-bdb8-d0abd5554ec0/resourcedata",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"repository",
+										"process-definitions",
+										"alarm_flow:1:3afa85d0-0f23-11ea-bdb8-d0abd5554ec0",
+										"resourcedata"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据流程定义id获取流程bnmp信息",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/repository/process-definitions/alarm_flow:2:b37a3098-0f24-11ea-bdb8-d0abd5554ec0/model",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"repository",
+										"process-definitions",
+										"alarm_flow:2:b37a3098-0f24-11ea-bdb8-d0abd5554ec0",
+										"model"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "流程资源",
+					"item": [
+						{
+							"name": "获取发布流程中包含的资源",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/repository/deployments/3aa70e9d-0f23-11ea-bdb8-d0abd5554ec0/resources",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"repository",
+										"deployments",
+										"3aa70e9d-0f23-11ea-bdb8-d0abd5554ec0",
+										"resources"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据资源id获取发布流程中的资源详情",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/repository/deployments/3aa70e9d-0f23-11ea-bdb8-d0abd5554ec0/resources/alarm_flow.bpmn20.xml",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"repository",
+										"deployments",
+										"3aa70e9d-0f23-11ea-bdb8-d0abd5554ec0",
+										"resources",
+										"alarm_flow.bpmn20.xml"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据资源id访问资源内容",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/repository/deployments/3aa70e9d-0f23-11ea-bdb8-d0abd5554ec0/resourcedata/alarm_flow.bpmn20.xml",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"repository",
+										"deployments",
+										"3aa70e9d-0f23-11ea-bdb8-d0abd5554ec0",
+										"resourcedata",
+										"alarm_flow.bpmn20.xml"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "流程候选人、组管理",
+					"item": [
+						{
+							"name": "获取流程定义的所有候选人、组信息",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/repository/process-definitions/alarm_flow:2:b37a3098-0f24-11ea-bdb8-d0abd5554ec0/identitylinks",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"repository",
+										"process-definitions",
+										"alarm_flow:2:b37a3098-0f24-11ea-bdb8-d0abd5554ec0",
+										"identitylinks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "向流程新增候选人、组",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"user\" : \"kermit\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/repository/process-definitions//alarm_flow:2:b37a3098-0f24-11ea-bdb8-d0abd5554ec0/identitylinks",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"repository",
+										"process-definitions",
+										"",
+										"alarm_flow:2:b37a3098-0f24-11ea-bdb8-d0abd5554ec0",
+										"identitylinks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据流程定义id删除候选人、组",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/repository/process-definitions//alarm_flow:2:b37a3098-0f24-11ea-bdb8-d0abd5554ec0/identitylinks/users/kermit",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"repository",
+										"process-definitions",
+										"",
+										"alarm_flow:2:b37a3098-0f24-11ea-bdb8-d0abd5554ec0",
+										"identitylinks",
+										"users",
+										"kermit"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "模型管理",
+					"item": [
+						{
+							"name": "获取模型",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/repository/models",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"repository",
+										"models"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "新增模型",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"name\":\"Model name\",\r\n   \"key\":\"Model key\",\r\n   \"category\":\"Model category\",\r\n   \"version\":1,\r\n   \"metaInfo\":\"Model metainfo\",\r\n   \"deploymentId\":\"3aa70e9d-0f23-11ea-bdb8-d0abd5554ec0\",\r\n   \"tenantId\":\"tenant\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/repository/models",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"repository",
+										"models"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据模型id修改模型",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"name\":\"Model name - changed\",\r\n   \"key\":\"Model key - changed\",\r\n   \"category\":\"Model category - changed\",\r\n   \"version\":3,\r\n   \"metaInfo\":\"Model metainfo - changed\",\r\n   \"deploymentId\":\"3aa70e9d-0f23-11ea-bdb8-d0abd5554ec0\",\r\n   \"tenantId\":\"updatedTenant\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/repository/models/d8e1abf8-0f2b-11ea-ae38-d0abd5554ec0",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"repository",
+										"models",
+										"d8e1abf8-0f2b-11ea-ae38-d0abd5554ec0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据模型id删除模型",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/repository/models/d8e1abf8-0f2b-11ea-ae38-d0abd5554ec0",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"repository",
+										"models",
+										"d8e1abf8-0f2b-11ea-ae38-d0abd5554ec0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据模型id获取extraSource",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/repository/models/d8e1abf8-0f2b-11ea-ae38-d0abd5554ec0/source",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"repository",
+										"models",
+										"d8e1abf8-0f2b-11ea-ae38-d0abd5554ec0",
+										"source"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据模型id设置source",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "flow",
+											"type": "file",
+											"src": "/C:/Users/Lincoln/Documents/alarm_flow.bpmn20.xml"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/repository/models/d8e1abf8-0f2b-11ea-ae38-d0abd5554ec0/source",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"repository",
+										"models",
+										"d8e1abf8-0f2b-11ea-ae38-d0abd5554ec0",
+										"source"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据模型id获取source",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/repository/models/d8e1abf8-0f2b-11ea-ae38-d0abd5554ec0/source",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"repository",
+										"models",
+										"d8e1abf8-0f2b-11ea-ae38-d0abd5554ec0",
+										"source"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据模型id设置source-extra",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "api",
+											"type": "file",
+											"src": "/C:/Users/Lincoln/Documents/api.json"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/repository/models/d8e1abf8-0f2b-11ea-ae38-d0abd5554ec0/source-extra",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"repository",
+										"models",
+										"d8e1abf8-0f2b-11ea-ae38-d0abd5554ec0",
+										"source-extra"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据模型id获取source-extra",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/repository/models/d8e1abf8-0f2b-11ea-ae38-d0abd5554ec0/source-extra",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"repository",
+										"models",
+										"d8e1abf8-0f2b-11ea-ae38-d0abd5554ec0",
+										"source-extra"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "流程实例",
+					"item": [
+						{
+							"name": "根据实例id，查询流程实例",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/process-instances/fa71102d-0f2d-11ea-ae38-d0abd5554ec0",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"process-instances",
+										"fa71102d-0f2d-11ea-ae38-d0abd5554ec0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据实例id删除流程实例",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/process-instances/fa71102d-0f2d-11ea-ae38-d0abd5554ec0",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"process-instances",
+										"fa71102d-0f2d-11ea-ae38-d0abd5554ec0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据流程实例id挂起、激活流程实例",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"action\":\"activate\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/process-instances/fa71102d-0f2d-11ea-ae38-d0abd5554ec0",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"process-instances",
+										"fa71102d-0f2d-11ea-ae38-d0abd5554ec0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据流程定义id，启动流程",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"processDefinitionId\":\"alarm_flow:1:3afa85d0-0f23-11ea-bdb8-d0abd5554ec0\",\r\n   \"businessKey\":\"alrm_process_id\",\r\n   \"variables\": [\r\n      {\r\n        \"name\":\"users\",\r\n        \"value\":[\"120045\" , \"40039\"]\r\n      }\r\n   ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/process-instances",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"process-instances"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据流程定义key，启动流程",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"processDefinitionKey\":\"alarm_flow\",\r\n   \"businessKey\":\"alrm_process_id\",\r\n   \"variables\": [\r\n      {\r\n        \"name\":\"users\",\r\n        \"value\":[\"120045\" , \"40039\"]\r\n      }\r\n   ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/process-instances",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"process-instances"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据message，启动流程",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"message\":\"newOrderMessage\",\r\n   \"businessKey\":\"alrm_process_id\",\r\n   \"variables\": [\r\n      {\r\n        \"name\":\"users\",\r\n        \"value\":[\"120045\" , \"40039\"]\r\n      }\r\n   ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/process-instances",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"process-instances"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "流程实例列表",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/process-instances",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"process-instances"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据条件查询流程实例",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"processDefinitionKey\":\"alarm_flow\",\r\n  \"variables\":\r\n  [\r\n    {\r\n        \"name\":\"users\",\r\n        \"value\":\"120045\",\r\n        \"operation\" : \"equals\",\r\n        \"type\" : \"string\"\r\n    }\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/query/process-instances",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"query",
+										"process-instances"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据流程实例id，获取流程实例",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/process-instances/5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"process-instances",
+										"5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据流程实例id，获取流程图",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/process-instances/5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0/diagram",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"process-instances",
+										"5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0",
+										"diagram"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据流程定义id、获取流程参与者",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/process-instances/5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0/identitylinks",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"process-instances",
+										"5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0",
+										"identitylinks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "为流程实例添加一个参与者",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"user\":\"kermit\",\r\n  \"type\":\"participant\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/process-instances/5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0/identitylinks",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"process-instances",
+										"5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0",
+										"identitylinks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除流程实例参与人",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/process-instances/5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0/identitylinks/users/kermit/participant",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"process-instances",
+										"5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0",
+										"identitylinks",
+										"users",
+										"kermit",
+										"participant"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "流程实例-变量",
+					"item": [
+						{
+							"name": "根据流程实例id，获取变量列表",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/process-instances/5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0/variables",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"process-instances",
+										"5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0",
+										"variables"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据流程实例id，变量key，获取变量内容",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/process-instances/5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0/variables/users/data",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"process-instances",
+										"5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0",
+										"variables",
+										"users",
+										"data"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据流程实例id，变量key，获取变量信息",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/process-instances/5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0/variables/users",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"process-instances",
+										"5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0",
+										"variables",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "通过实例id,修改变量",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n   {\r\n      \"name\":\"intProcVar\",\r\n      \"type\":\"integer\",\r\n      \"value\":2344\r\n   }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/process-instances/5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0/variables",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"process-instances",
+										"5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0",
+										"variables"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "通过实例id,变量key,修改变量 Copy",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\":\"intProcVar\",\r\n  \"type\":\"integer\",\r\n  \"value\":12\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/process-instances/5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0/variables/intProcVar",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"process-instances",
+										"5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0",
+										"variables",
+										"intProcVar"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "通过实例id,新增变量",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n   {\r\n      \"name\":\"intProcVar\",\r\n      \"type\":\"integer\",\r\n      \"value\":123\r\n   }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/process-instances/5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0/variables",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"process-instances",
+										"5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0",
+										"variables"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据流程执行id,变量名称，修改流程实例变量",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n      \"name\":\"intExecVar\",\r\n      \"type\":\"integer\",\r\n      \"value\":22221211113\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/process-instances/5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0/variables/intExecVar",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"process-instances",
+										"5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0",
+										"variables",
+										"intExecVar"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "流程执行",
+					"item": [
+						{
+							"name": "根据流程执行id，获取执行信息中使用的变量",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/executions/5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0/variables",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"executions",
+										"5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0",
+										"variables"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据流程执行id，获取执行信息活动节点",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/executions/5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0/activities",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"executions",
+										"5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0",
+										"activities"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据流程执行id，获取执行信息",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/executions/5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"executions",
+										"5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "流程执行列表",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/executions",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"executions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据流程执行id，新增流程实例变量",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n   {\r\n      \"name\":\"intExecVar\",\r\n      \"type\":\"integer\",\r\n      \"value\":1211113\r\n   }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/process-instances/5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0/variables",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"process-instances",
+										"5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0",
+										"variables"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据流程执行id，修改流程实例变量",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n   {\r\n      \"name\":\"intExecVar\",\r\n      \"type\":\"integer\",\r\n      \"value\":22221211113\r\n   }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/process-instances/5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0/variables",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"process-instances",
+										"5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0",
+										"variables"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "任务管理",
+					"item": [
+						{
+							"name": "根据任务id，修改任务信息",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"assignee\" : \"assignee\",\r\n  \"delegationState\" : \"resolved\",\r\n  \"description\" : \"New task description\",\r\n  \"dueDate\" : \"2013-04-17T13:06:02.438+02:00\",\r\n  \"name\" : \"New task name\",\r\n  \"owner\" : \"owner\",\r\n  \"parentTaskId\" : \"3\",\r\n  \"priority\" : 20\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/tasks/fa73332b-0f2d-11ea-ae38-d0abd5554ec0",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"tasks",
+										"fa73332b-0f2d-11ea-ae38-d0abd5554ec0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "任务列表",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8085/process-api/runtime/tasks",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8085",
+									"path": [
+										"process-api",
+										"runtime",
+										"tasks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据任务id，获取任务详情",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/tasks/fa73332b-0f2d-11ea-ae38-d0abd5554ec0",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"tasks",
+										"fa73332b-0f2d-11ea-ae38-d0abd5554ec0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "任务签收",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"action\" : \"claim\",\r\n  \"assignee\" : \"userWhoClaims\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/tasks/5bce4bcc-0f2e-11ea-ae38-d0abd5554ec0",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"tasks",
+										"5bce4bcc-0f2e-11ea-ae38-d0abd5554ec0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "任务完成",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"action\": \"complete\",\n    \"variables\": [\n        {\n            \"name\": \"state\",\n            \"type\": \"string\",\n            \"value\": \"np\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/tasks/fa73332b-0f2d-11ea-ae38-d0abd5554ec0",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"tasks",
+										"fa73332b-0f2d-11ea-ae38-d0abd5554ec0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "任务代理",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"action\" : \"delegate\",\r\n  \"assignee\" : \"110\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/tasks/fa7296e5-0f2d-11ea-ae38-d0abd5554ec0",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"tasks",
+										"fa7296e5-0f2d-11ea-ae38-d0abd5554ec0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "任务代理-处理",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"action\" : \"resolve\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/tasks/fa7296e5-0f2d-11ea-ae38-d0abd5554ec0",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"tasks",
+										"fa7296e5-0f2d-11ea-ae38-d0abd5554ec0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除任务",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/tasks/fa73332b-0f2d-11ea-ae38-d0abd5554ec0?cascadeHistory=true&deleteReason=测试删除",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"tasks",
+										"fa73332b-0f2d-11ea-ae38-d0abd5554ec0"
+									],
+									"query": [
+										{
+											"key": "cascadeHistory",
+											"value": "true"
+										},
+										{
+											"key": "deleteReason",
+											"value": "测试删除"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获得任务的变量",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8085/process-api/runtime/tasks/10020/variables",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8085",
+									"path": [
+										"process-api",
+										"runtime",
+										"tasks",
+										"10020",
+										"variables"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获取任务的一个变量",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/tasks/fa7296e5-0f2d-11ea-ae38-d0abd5554ec0/variables/users",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"tasks",
+										"fa7296e5-0f2d-11ea-ae38-d0abd5554ec0",
+										"variables",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获取任务的一个变量的二进制数据",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/tasks/fa7296e5-0f2d-11ea-ae38-d0abd5554ec0/variables/users/data",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"tasks",
+										"fa7296e5-0f2d-11ea-ae38-d0abd5554ec0",
+										"variables",
+										"users",
+										"data"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "创建任务变量",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n  {\r\n    \"name\" : \"myTaskVariable\",\r\n    \"scope\" : \"local\",\r\n    \"type\" : \"string\",\r\n    \"value\" : \"Hello my friend\"\r\n  }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/tasks/fa7296e5-0f2d-11ea-ae38-d0abd5554ec0/variables",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"tasks",
+										"fa7296e5-0f2d-11ea-ae38-d0abd5554ec0",
+										"variables"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "更新任务的一个已有变量",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : \"myTaskVariable\",\r\n    \"scope\" : \"local\",\r\n    \"type\" : \"string\",\r\n    \"value\" : \"Hello my friend---changed\"\r\n  }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/tasks/fa7296e5-0f2d-11ea-ae38-d0abd5554ec0/variables/myTaskVariable",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"tasks",
+										"fa7296e5-0f2d-11ea-ae38-d0abd5554ec0",
+										"variables",
+										"myTaskVariable"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除任务变量",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/tasks/fa7296e5-0f2d-11ea-ae38-d0abd5554ec0/variables/myTaskVariable",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"tasks",
+										"fa7296e5-0f2d-11ea-ae38-d0abd5554ec0",
+										"variables",
+										"myTaskVariable"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除任务的所有局部变量",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/tasks/fa7296e5-0f2d-11ea-ae38-d0abd5554ec0/variables",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"tasks",
+										"fa7296e5-0f2d-11ea-ae38-d0abd5554ec0",
+										"variables"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获得任务的所有IdentityLink",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/tasks/fa7296e5-0f2d-11ea-ae38-d0abd5554ec0/identitylinks",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"tasks",
+										"fa7296e5-0f2d-11ea-ae38-d0abd5554ec0",
+										"identitylinks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "为任务创建一个IdentityLink",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"user\" : \"kermit-owner\",\r\n  \"type\" : \"owner\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/tasks/fa7296e5-0f2d-11ea-ae38-d0abd5554ec0/identitylinks",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"tasks",
+										"fa7296e5-0f2d-11ea-ae38-d0abd5554ec0",
+										"identitylinks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除任务的一个IdentityLink",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/tasks/fa7296e5-0f2d-11ea-ae38-d0abd5554ec0/identitylinks/users/kermit-owner/owner",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"tasks",
+										"fa7296e5-0f2d-11ea-ae38-d0abd5554ec0",
+										"identitylinks",
+										"users",
+										"kermit-owner",
+										"owner"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "任务评论",
+					"item": [
+						{
+							"name": "为任务创建评论",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"message\" : \"This is a comment on the task.-3\",\r\n  \"saveProcessInstanceId\" : true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/tasks/d5836fc5-0f37-11ea-ae38-d0abd5554ec0/comments",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"tasks",
+										"d5836fc5-0f37-11ea-ae38-d0abd5554ec0",
+										"comments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获得任务的所有评论",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/tasks/fa73332b-0f2d-11ea-ae38-d0abd5554ec0/comments",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"tasks",
+										"fa73332b-0f2d-11ea-ae38-d0abd5554ec0",
+										"comments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获得任务的一个评论",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/tasks/fa73332b-0f2d-11ea-ae38-d0abd5554ec0/comments/e360f0e9-0f51-11ea-ae38-d0abd5554ec0",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"tasks",
+										"fa73332b-0f2d-11ea-ae38-d0abd5554ec0",
+										"comments",
+										"e360f0e9-0f51-11ea-ae38-d0abd5554ec0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除任务的一条评论",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/tasks/fa73332b-0f2d-11ea-ae38-d0abd5554ec0/comments/e360f0e9-0f51-11ea-ae38-d0abd5554ec0",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"tasks",
+										"fa73332b-0f2d-11ea-ae38-d0abd5554ec0",
+										"comments",
+										"e360f0e9-0f51-11ea-ae38-d0abd5554ec0"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "任务事件",
+					"item": [
+						{
+							"name": "获取任务所有事件",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/tasks/d5836fc5-0f37-11ea-ae38-d0abd5554ec0/events",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"tasks",
+										"d5836fc5-0f37-11ea-ae38-d0abd5554ec0",
+										"events"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获取任务的一个事件",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/tasks/fa73332b-0f2d-11ea-ae38-d0abd5554ec0/events/c6a17977-0f51-11ea-ae38-d0abd5554ec0",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"tasks",
+										"fa73332b-0f2d-11ea-ae38-d0abd5554ec0",
+										"events",
+										"c6a17977-0f51-11ea-ae38-d0abd5554ec0"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "任务附件",
+					"item": [
+						{
+							"name": "为任务创建一个附件，包含外部资源的链接",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\":\"Simple attachment\",\r\n  \"description\":\"Simple attachment description\",\r\n  \"type\":\"simpleType\",\r\n  \"externalUrl\":\"http://activiti.org\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/tasks/d5836fc5-0f37-11ea-ae38-d0abd5554ec0/attachments",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"tasks",
+										"d5836fc5-0f37-11ea-ae38-d0abd5554ec0",
+										"attachments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获得任务的所有附件",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\":\"Simple attachment\",\r\n  \"description\":\"Simple attachment description\",\r\n  \"type\":\"simpleType\",\r\n  \"externalUrl\":\"http://activiti.org\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/tasks/d5836fc5-0f37-11ea-ae38-d0abd5554ec0/attachments",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"tasks",
+										"d5836fc5-0f37-11ea-ae38-d0abd5554ec0",
+										"attachments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "为任务创建一个附件，包含附件文件",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "attachment",
+											"type": "file",
+											"src": "/C:/Users/Lincoln/Documents/api.json"
+										},
+										{
+											"key": "name",
+											"value": "附件",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "描述",
+											"type": "text"
+										},
+										{
+											"key": "type",
+											"value": "binary",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/tasks/d5836fc5-0f37-11ea-ae38-d0abd5554ec0/attachments",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"tasks",
+										"d5836fc5-0f37-11ea-ae38-d0abd5554ec0",
+										"attachments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获取附件的内容",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/tasks/d5836fc5-0f37-11ea-ae38-d0abd5554ec0/attachments/5d8c28d5-0f53-11ea-ae38-d0abd5554ec0/content",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"tasks",
+										"d5836fc5-0f37-11ea-ae38-d0abd5554ec0",
+										"attachments",
+										"5d8c28d5-0f53-11ea-ae38-d0abd5554ec0",
+										"content"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获得任务的一个附件",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/tasks/d5836fc5-0f37-11ea-ae38-d0abd5554ec0/attachments/5d8c28d5-0f53-11ea-ae38-d0abd5554ec0",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"tasks",
+										"d5836fc5-0f37-11ea-ae38-d0abd5554ec0",
+										"attachments",
+										"5d8c28d5-0f53-11ea-ae38-d0abd5554ec0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除任务的一个附件",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/runtime/tasks/d5836fc5-0f37-11ea-ae38-d0abd5554ec0/attachments/5d8c28d5-0f53-11ea-ae38-d0abd5554ec0",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"runtime",
+										"tasks",
+										"d5836fc5-0f37-11ea-ae38-d0abd5554ec0",
+										"attachments",
+										"5d8c28d5-0f53-11ea-ae38-d0abd5554ec0"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "历史管理",
+					"item": [
+						{
+							"name": "获得历史流程实例",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/history/historic-process-instances/fa71102d-0f2d-11ea-ae38-d0abd5554ec0",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"history",
+										"historic-process-instances",
+										"fa71102d-0f2d-11ea-ae38-d0abd5554ec0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "历史流程实例列表",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/history/historic-process-instances",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"history",
+										"historic-process-instances"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "查询历史流程实例",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"processDefinitionId\" : \"alarm_flow:1:3afa85d0-0f23-11ea-bdb8-d0abd5554ec0\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/query/historic-process-instances",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"query",
+										"historic-process-instances"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除历史流程实例",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/history/historic-process-instances/5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"history",
+										"historic-process-instances",
+										"5bcdfd8e-0f2e-11ea-ae38-d0abd5554ec0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获取历史流程实例的IdentityLink",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/history/historic-process-instances/fa71102d-0f2d-11ea-ae38-d0abd5554ec0/identitylinks",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"history",
+										"historic-process-instances",
+										"fa71102d-0f2d-11ea-ae38-d0abd5554ec0",
+										"identitylinks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获取历史流程实例变量的二进制数据",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/history/historic-process-instances/fa71102d-0f2d-11ea-ae38-d0abd5554ec0/variables/users/data",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"history",
+										"historic-process-instances",
+										"fa71102d-0f2d-11ea-ae38-d0abd5554ec0",
+										"variables",
+										"users",
+										"data"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获得一个历史流程实例的所有评论",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/history/historic-process-instances/fa71102d-0f2d-11ea-ae38-d0abd5554ec0/comments",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"history",
+										"historic-process-instances",
+										"fa71102d-0f2d-11ea-ae38-d0abd5554ec0",
+										"comments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获得历史流程实例的一条评论",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/history/historic-process-instances/fa71102d-0f2d-11ea-ae38-d0abd5554ec0/comments/9b1e6b28-0f55-11ea-ae38-d0abd5554ec0",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"history",
+										"historic-process-instances",
+										"fa71102d-0f2d-11ea-ae38-d0abd5554ec0",
+										"comments",
+										"9b1e6b28-0f55-11ea-ae38-d0abd5554ec0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除历史流程实例的一条评论",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/history/historic-process-instances/fa71102d-0f2d-11ea-ae38-d0abd5554ec0/comments/9b1e6b28-0f55-11ea-ae38-d0abd5554ec0",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"history",
+										"historic-process-instances",
+										"fa71102d-0f2d-11ea-ae38-d0abd5554ec0",
+										"comments",
+										"9b1e6b28-0f55-11ea-ae38-d0abd5554ec0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "新建一个历史流程实例的评论",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"message\" : \"This is a comment history.\",\r\n  \"saveProcessInstanceId\" : true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8085/process-api/history/historic-process-instances/25126/comments",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8085",
+									"path": [
+										"process-api",
+										"history",
+										"historic-process-instances",
+										"25126",
+										"comments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获得单独历史任务实例",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/history/historic-task-instances/68243720-0f52-11ea-ae38-d0abd5554ec0",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"history",
+										"historic-task-instances",
+										"68243720-0f52-11ea-ae38-d0abd5554ec0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获得历史任务实例的IdentityLink",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/history/historic-task-instances/d5836fc5-0f37-11ea-ae38-d0abd5554ec0/identitylinks",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"history",
+										"historic-task-instances",
+										"d5836fc5-0f37-11ea-ae38-d0abd5554ec0",
+										"identitylinks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获取历史任务实例",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8085/process-api/history/historic-task-instances",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8085",
+									"path": [
+										"process-api",
+										"history",
+										"historic-task-instances"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获取历史任务实例变量的二进制值",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/history/historic-task-instances/d5836fc5-0f37-11ea-ae38-d0abd5554ec0/variables/users/data",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"history",
+										"historic-task-instances",
+										"d5836fc5-0f37-11ea-ae38-d0abd5554ec0",
+										"variables",
+										"users",
+										"data"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "查询历史任务实例",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"processDefinitionId\" : \"oneTaskProcess%3A1%3A4\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/query/historic-task-instances",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"query",
+										"historic-task-instances"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除历史任务实例",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/history/historic-task-instances/68243720-0f52-11ea-ae38-d0abd5554ec0",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"history",
+										"historic-task-instances",
+										"68243720-0f52-11ea-ae38-d0abd5554ec0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获取历史活动实例",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8085/process-api/history/historic-activity-instances",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8085",
+									"path": [
+										"process-api",
+										"history",
+										"historic-activity-instances"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "查询历史活动实例",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"processDefinitionId\" : \"oneTaskProcess%3A1%3A4\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/query/historic-activity-instances",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"query",
+										"historic-activity-instances"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "列出历史变量实例",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8085/process-api/history/historic-variable-instances",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8085",
+									"path": [
+										"process-api",
+										"history",
+										"historic-variable-instances"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "查询历史变量实例",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"processDefinitionId\" : \"oneTaskProcess%3A1%3A4\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/query/historic-variable-instances",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"query",
+										"historic-variable-instances"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获取历史细节",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"taskId\" : \"10020\",\r\n  \"selectOnlyFormProperties\" : true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8085/process-api/history/historic-detail",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8085",
+									"path": [
+										"process-api",
+										"history",
+										"historic-detail"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "表单管理",
+					"item": [
+						{
+							"name": "根据任务id获取form",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/form/form-data?taskId=fa73332b-0f2d-11ea-ae38-d0abd5554ec0",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"form",
+										"form-data"
+									],
+									"query": [
+										{
+											"key": "taskId",
+											"value": "fa73332b-0f2d-11ea-ae38-d0abd5554ec0"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "提交任务表单数据",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"taskId\" : \"68243720-0f52-11ea-ae38-d0abd5554ec0\",\r\n  \"properties\" : [\r\n    {\r\n      \"id\" : \"room\",\r\n      \"value\" : \"normal\"\r\n    },\r\n    {\r\n      \"id\" : \"auditState\",\r\n      \"value\" : \"accept\"\r\n    }\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/form/form-data",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"form",
+										"form-data"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据实例id获取form",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/process-api/form/form-data?processDefinitionId=alarm_flow:2:b37a3098-0f24-11ea-bdb8-d0abd5554ec0",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"process-api",
+										"form",
+										"form-data"
+									],
+									"query": [
+										{
+											"key": "processDefinitionId",
+											"value": "alarm_flow:2:b37a3098-0f24-11ea-bdb8-d0abd5554ec0"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "bd70c22d-8eac-41df-b7a0-88c57eb00cb8",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "16c911fc-54d0-4028-9f1f-8e9710309698",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

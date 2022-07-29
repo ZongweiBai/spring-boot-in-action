@@ -1,0 +1,71 @@
+server:
+  port: 11088
+
+# actuator相关配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      base-path: /actuator
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
+
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: '*'
+            allowedMethods: '*'
+            allowedHeaders: '*'
+      discovery:
+        locator:
+          # 关闭服务发现根据service-name自动配置route的功能
+          enabled: false
+      routes:
+      - id: PLATFORM-MANAGER
+        predicates:
+          - Path=/oauth2/**
+        filters:
+          - RewritePath=/oauth2/(?<segment>.*), /oauth2-server/$\{segment}
+          - RequestTime
+        uri: lb://OAUTH2-SERVER
+      - id: FILE-SERVER
+        predicates:
+          - Path=/file/**
+        filters:
+          - StripPrefix=1
+          - RequestTime
+        uri: lb://FILE-SERVER
+        # 非服务发现的配置
+#        - predicates:
+#            - Path=/file/**
+#          filters:
+#            - StripPrefix=1
+#          uri: "http://192.168.3.168:8899"
+      - id: WS-IM-SERVER
+        predicates:
+          - Path=/ws-im/**
+        filters:
+          - StripPrefix=1
+#        uri: lb:ws://WS-IM-SERVER
+        uri: lb://WS-IM-SERVER
+
+    consul:
+      host: 127.0.0.1
+      port: 8501
+      discovery:
+        instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+        serviceName: API-GATEWAY
+        prefer-ip-address: true
+        register-health-check: true
+        # 只能使用health-check-url可以解决consul Service Checks failed的问题
+        #        health-check-path: /actuator/health
+        health-check-url: http://${spring.cloud.client.ip-address}:${server.port}/actuator/health
+        tags: API网关

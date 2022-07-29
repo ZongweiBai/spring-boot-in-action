@@ -1,0 +1,23 @@
+spring:
+  cloud:
+    consul:
+      discovery:
+        health-check-path: /actuator/health  #检测实例健康
+        health-check-interval: 10s   #每隔10s检查
+        register: true
+        service-name: ${spring.application.name} #实例名称
+        heartbeat:
+          enabled: true
+      host: 127.0.0.1
+      port: 8501
+      config:
+        enabled: true
+        format: yaml
+        defaultContext: ${spring.application.name}
+        profileSeparator: ','
+        data-key: data
+        prefixes: config
+        watch:
+          enabled: true
+  application:
+    name: spring-boot-consul

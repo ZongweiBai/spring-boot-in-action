@@ -1,0 +1,51 @@
+server:
+  port: 10110
+
+spring:
+  application:
+    name: BOOT-ADMIN-SERVER
+  security:
+    user:
+      name: admin
+      password: springboot_admin
+  cloud:
+    # consul配置
+    consul:
+      host: 192.168.3.168
+      port: 8501
+      discovery:
+        instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+        serviceName: BOOT-ADMIN-SERVER
+        prefer-ip-address: true
+        register-health-check: true
+        # 只能使用health-check-url可以解决consul Service Checks failed的问题
+        # health-check-path: /actuator/health
+        health-check-url: http://${spring.cloud.client.ip-address}:${server.port}/actuator/health
+        health-check-critical-timeout: 30s
+        # 对应eureka中的metadata-map
+        tags: SpringBoot监控服务 user.name=${spring.security.user.name}, user.password=${spring.security.user.password}
+  boot:
+    admin:
+      ui:
+        title: SpringBoot监控中心
+        brand: <img src="assets/img/icon-spring-boot-admin.svg" width="28px"/><span>SpringBoot监控中心</span>
+        cache:
+          no-cache: true
+      discovery:
+        ignored-services: consul,WS-IM-SERVER
+      notify:
+        discord:
+          ignore-changes:
+            - OFFLINE:UP
+            - UNKNOWN:UP
+# actuator相关配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      base-path: /actuator
+  endpoint:
+    health:
+      enabled: true
+      show-details: always

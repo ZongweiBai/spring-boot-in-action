@@ -1,0 +1,17 @@
+spring:
+  config:
+    additional-location: /usr/local/modules/Boot-Admin-Server/config
+  boot:
+    admin:
+      notify:
+        mail:
+          from: XXX@163.com
+          to: XXX@foxmail.com
+  mail:
+    host: smtp.163.com
+    username: XXX@163.com
+    password: XXXXXXX
+
+logging:
+  file:
+    name: /usr/local/modules/Boot-Admin-Server/log/boot-admin-server.log

@@ -1,0 +1,63 @@
+application:
+  version: 1.1.0-SNAPSHOT
+server:
+  port: 8093
+  servlet:
+    context-path: /oauth2-server
+
+# 配置服务发现
+eureka:
+  client:
+    instanceInfoReplicationIntervalSeconds: 10
+    enabled: false
+    serviceUrl:
+      defaultZone: http://10.100.1.19:8761/eureka/
+  instance:
+    preferIpAddress: false
+
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://127.0.0.1:3306/boot_in_action?useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+#    password: root
+    driverClassName: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 10
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 2
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: 1ms
+        min-idle: 0
+      shutdown-timeout: 100ms
+  security:
+    user:
+      name: admin
+      password: admin
+  cloud:
+    consul:
+      host: 127.0.0.1
+      port: 8501
+      discovery:
+        instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+        serviceName: OAUTH2-SERVER
+        prefer-ip-address: true
+        register-health-check: true
+        # 只能使用health-check-url可以解决consul Service Checks failed的问题
+        # health-check-path: /actuator/health
+        health-check-url: http://${spring.cloud.client.ip-address}:${server.port}${server.servlet.context-path}/actuator/health
+        tags: OAuth2鉴权服务
+
+# logback配置文件路径
+logging:
+  config: classpath:logback.xml
+  level:
+    com.github.baymin.oauth2.restclient.OAuth2Api: debug
+

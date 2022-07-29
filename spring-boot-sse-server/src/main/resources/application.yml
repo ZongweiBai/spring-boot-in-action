@@ -1,0 +1,69 @@
+server:
+  port: 8068
+  servlet:
+    context-path: /boot-sse
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  jetty:
+    accesslog:
+      enabled: true
+      format: ncsa
+      append: true
+      filename: logs/jetty-yyyy_mm_dd.request.log
+    connection-idle-timeout: 60000
+    threads:
+      selectors: -1
+      acceptors: -1
+      min: 20
+      max: 200
+      idle-timeout: 60000
+  shutdown: graceful
+
+# actuator相关配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      base-path: /actuator
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
+  health:
+    redis:
+      enabled: false
+
+spring:
+  lifecycle:
+    timeout-per-shutdown-phase: 5s
+  output:
+    ansi:
+      enabled: always
+  application:
+    name: BOOT-SSE-SERVER
+  datasource:
+    # 内存数据库h2的数据源配置
+    memh2:
+      type: com.zaxxer.hikari.HikariDataSource
+      # 内存数据库的数据存在内存中，当程序停止时，不会被保存会丢失
+      url: jdbc:h2:mem:boot-sse;DB_CLOSE_DELAY=1000
+      username: sa
+      password: 123456
+      driverClassName: org.h2.Driver
+      schema: classpath:db/h2_schema.sql
+  mvc:
+    view:
+      prefix: /
+      suffix: .html
+  jackson:
+    property-naming-strategy: CAMEL_CASE_TO_LOWER_CASE_WITH_UNDERSCORES
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+08:00
+  redis:
+    database: 10
+    host: 127.0.0.1
+    port: 6379
+

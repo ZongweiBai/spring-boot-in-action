@@ -1,0 +1,44 @@
+server:
+  port: 1514
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: EUREKA_SERVER
+
+eureka:
+  instance:
+    hostname: 127.0.0.1
+    prefer-ip-address: true
+    ip-address: ${spring.cloud.client.ip-address}
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 10
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+  client:
+    registerWithEureka: true
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+# actuator相关配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      base-path: /actuator
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
+    prometheus:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+        step: 1ms
+        descriptions: true
+    tags:
+      application: EUREKA_SERVER

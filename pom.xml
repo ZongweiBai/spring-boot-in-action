@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.github.baymin</groupId>
+    <artifactId>spring-boot-in-action</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>spring-boot-in-action</name>
+
+    <profiles>
+        <profile>
+            <id>default</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <modules>
+                <module>spring-boot-in-action-parent</module>
+                <module>spring-boot-webflux-file-server</module>
+                <module>spring-boot-admin-server</module>
+                <module>spring-boot-sse-server</module>
+                <module>spring-boot-websocket-server</module>
+                <module>spring-boot-api-gateway</module>
+                <module>spring-boot-oauth2-server</module>
+                <module>spring-boot-discovery-server</module>
+                <module>spring-boot-batch-server</module>
+                <module>spring-boot-axis2-server</module>
+                <module>spring-boot-cxf-client</module>
+                <module>spring-boot-flowable-server</module>
+                <module>spring-boot-netty-server</module>
+                <module>spring-boot-mongodb</module>
+                <module>spring-boot-easy-captcha</module>
+                <module>spring-boot-disruptor</module>
+                <module>spring-boot-consul</module>
+            </modules>
+        </profile>
+    </profiles>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+                <executions>
+                    <execution>
+                        <id>default</id>
+                        <goals>
+                            <goal>perform</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

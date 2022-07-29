@@ -1,0 +1,43 @@
+server:
+  port: 8093
+  servlet:
+    context-path: /oauth2-server
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  # 以下是undertow内嵌服务器的配置项
+  undertow:
+    buffer-size: 1024
+    direct-buffers: true
+    eager-filter-init: true
+    max-http-post-size: -1B
+    threads:
+      io: 8
+      worker: 128
+
+# actuator相关配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      base-path: /actuator
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
+  health:
+    redis:
+      enabled: false
+
+spring:
+  application:
+    name: OAUTH2-SERVER
+  output:
+    ansi:
+      enabled: always
+  jackson:
+    property-naming-strategy: CAMEL_CASE_TO_LOWER_CASE_WITH_UNDERSCORES
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+08:00

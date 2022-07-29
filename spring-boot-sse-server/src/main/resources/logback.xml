@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds">
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{HH:mm:ss.SSS} [%thread] [%X{USER-ID}] %-5level %logger - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+    <logger name="com.github.baymin.sse" additivity="false" level="DEBUG">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <logger name="org.springframework" additivity="false" level="info">
+    </logger>
+
+    <logger name="com.zaxxer.hikari" additivity="false" level="debug">
+    </logger>
+
+    <logger name="org.eclipse.jetty" additivity="false" level="info">
+    </logger>
+
+    <logger name="org.thymeleaf" additivity="false" level="INFO">
+    </logger>
+
+    <!-- print the start log in nohup.out-->
+    <logger name="com.github.baymin.sse.SseServerApplication" additivity="false" level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="org.springframework.boot" additivity="false" level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="org.eclipse.jetty" additivity="false" level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="com.zaxxer" additivity="false" level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+</configuration>

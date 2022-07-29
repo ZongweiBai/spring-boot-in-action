@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://10.100.1.18:5432/flowable
+    username: postgres
+    password: root
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+# actuator相关配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      base-path: /actuator
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
+
+flowable:
+  # 关闭自动部署
+  check-process-definitions: false
+  app:
+    deploy-resources: false
+  label-font-name: "宋体"
+  activity-font-name: "宋体"
+  annotation-font-name: "宋体"
+  # 自动生成flowable相关表 第一次生成后建议关闭提高运行速度
+  database-schema-update: true
+  # 保存历史数据级别设置为full最高级别，便于历史数据的追溯
+  history-level: full

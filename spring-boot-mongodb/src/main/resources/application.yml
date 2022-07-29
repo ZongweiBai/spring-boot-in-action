@@ -1,0 +1,9 @@
+spring:
+    data:
+        mongodb:
+            authentication-database: admin
+            database: db_student
+            host: 192.168.133.142
+            password: 123456
+            port: 27017
+            username: zlfeng

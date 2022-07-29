@@ -1,0 +1,7 @@
+netty:
+  tcp:
+    server:
+      host: 127.0.0.1
+      port: 7000
+    client:
+      port: 7000

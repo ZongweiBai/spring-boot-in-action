@@ -1,0 +1,118 @@
+version: '3.7'
+
+# starts 4 docker containers running minio server instances. Each
+# minio server's web interface will be accessible on the host at port
+# 9001 through 9004.
+services:
+  # mongodb
+  mongodb:
+    container_name: mongodb
+    image: mongo:4.2.5
+    # command: mongod --auth --config /data/configdb/mongod.conf
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
+    volumes:
+      - /home/zongwei/app_data/mongo/data/:/data/db/
+      - /home/zongwei/app_data/mongo/config/:/data/configdb/
+      - /etc/localtime:/etc/localtime
+    ports:
+      - "27017:27017"
+    restart: unless-stopped
+
+  # consul
+  consul:
+    container_name: consul_server
+    hostname: consul_server
+    network_mode: "host"
+    image: consul:1.7.2
+    command: consul agent -server -bind=192.168.3.168 -bootstrap-expect=1 -node=consul_server -data-dir /consul/data -config-dir /consul/config -client 0.0.0.0 -ui
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - /home/zongwei/app_data/consul/server/data/:/consul/data/
+      - /home/zongwei/app_data/consul/server/conf/:/consul/config/
+      - /etc/localtime:/etc/localtime
+    ports:
+      - "27017:27017"
+    restart: unless-stopped
+
+  minio1:
+    image: minio/minio:RELEASE.2020-08-07T01-23-07Z
+    volumes:
+      - data1-1:/data1
+      - data1-2:/data2
+    ports:
+      - "9001:9000"
+    environment:
+      MINIO_ACCESS_KEY: minio
+      MINIO_SECRET_KEY: minio123
+    command: server http://minio{1...4}/data{1...2}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+
+  minio2:
+    image: minio/minio:RELEASE.2020-08-07T01-23-07Z
+    volumes:
+      - data2-1:/data1
+      - data2-2:/data2
+    ports:
+      - "9002:9000"
+    environment:
+      MINIO_ACCESS_KEY: minio
+      MINIO_SECRET_KEY: minio123
+    command: server http://minio{1...4}/data{1...2}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+
+  minio3:
+    image: minio/minio:RELEASE.2020-08-07T01-23-07Z
+    volumes:
+      - data3-1:/data1
+      - data3-2:/data2
+    ports:
+      - "9003:9000"
+    environment:
+      MINIO_ACCESS_KEY: minio
+      MINIO_SECRET_KEY: minio123
+    command: server http://minio{1...4}/data{1...2}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+
+  minio4:
+    image: minio/minio:RELEASE.2020-08-07T01-23-07Z
+    volumes:
+      - data4-1:/data1
+      - data4-2:/data2
+    ports:
+      - "9004:9000"
+    environment:
+      MINIO_ACCESS_KEY: minio
+      MINIO_SECRET_KEY: minio123
+    command: server http://minio{1...4}/data{1...2}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+
+## By default this config uses default local driver,
+## For custom volumes replace with volume driver configuration.
+volumes:
+  data1-1:
+  data1-2:
+  data2-1:
+  data2-2:
+  data3-1:
+  data3-2:
+  data4-1:
+  data4-2:
