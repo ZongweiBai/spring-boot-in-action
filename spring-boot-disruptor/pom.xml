@@ -10,7 +10,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-boot-distruptor</artifactId>
+    <artifactId>spring-boot-disruptor</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
