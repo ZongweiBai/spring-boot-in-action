@@ -33,6 +33,7 @@
                 <module>spring-boot-easy-captcha</module>
                 <module>spring-boot-disruptor</module>
                 <module>spring-boot-consul</module>
+                <module>spring-boot-sa-token</module>
             </modules>
         </profile>
     </profiles>
