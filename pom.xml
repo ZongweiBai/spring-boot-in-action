@@ -28,7 +28,7 @@
                 <module>spring-boot-axis2-server</module>
                 <module>spring-boot-cxf-client</module>
                 <module>spring-boot-flowable-server</module>
-                <module>spring-boot-netty-server</module>
+                <module>spring-boot-netty-native</module>
                 <module>spring-boot-mongodb</module>
                 <module>spring-boot-easy-captcha</module>
                 <module>spring-boot-disruptor</module>
