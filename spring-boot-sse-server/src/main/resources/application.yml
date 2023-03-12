@@ -1,5 +1,5 @@
 server:
-  port: 8068
+  port: 18068
   servlet:
     context-path: /boot-sse
     encoding:
@@ -59,11 +59,11 @@ spring:
       prefix: /
       suffix: .html
   jackson:
-    property-naming-strategy: CAMEL_CASE_TO_LOWER_CASE_WITH_UNDERSCORES
+    property-naming-strategy: SNAKE_CASE
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+08:00
   redis:
     database: 10
-    host: 127.0.0.1
+    host: archlinux.wsl.com
     port: 6379
 

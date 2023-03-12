@@ -11,7 +11,7 @@ spring:
   cloud:
     # consul配置
     consul:
-      host: 192.168.3.168
+      host: archlinux.wsl.com
       port: 8501
       discovery:
         instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
